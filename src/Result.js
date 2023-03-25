@@ -19,12 +19,15 @@ const resultMap = [
     {"吉":{"title":"バァバ 吉",
         "description":"あなたの聖母の如き慈悲深い心は誰かの拠り所や帰る場所となることでしょう。しかし周りをよく見ることも忘れずに。",
         "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=310x1024:format=jpg/path/se095f67148f22699/image/i47fc73d2a955d9c1/version/1668845563/image.jpg"}},
+    {"吉":{"title":"サルビア　吉", // 5
+        "description":"悠々自適で飄々とした態度で回りを困惑させることもあるかと思いますが、紆余曲折ありつつも最後には丸く収まるでしょう。",
+        "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=160x512:format=jpg/path/se095f67148f22699/image/i1197c30e6942451b/version/1668845315/image.jpg",
+        "img2":"https://image.jimcdn.com/app/cms/image/transf/dimension=160x512:format=jpg/path/se095f67148f22699/image/ia06adac0048f76e7/version/1669618867/image.jpg"}},
     {"小吉":{"title":"ウツギ 小吉",
         "description":"お調子者のあなたはだいたいのことを難なく乗り越えてしまうでしょう。しかし調子に乗りすぎるといつしか不幸が訪れてしまうかもしれないのでほどほどに。",
-        "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=320x1024:format=jpg/path/se095f67148f22699/image/i85f1886ea6a38aac/version/1668677986/image.jpg"}},
-    // {"小吉":{"title":"アリウム 小吉", "description":"", "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=310x1024:format=jpg/path/se095f67148f22699/image/i1b8d4e9a6e0cd5cf/version/1668678448/image.jpg"}},
+        "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=320x1024:format=jpg/path/se095f67148f22699/image/i85f1886ea6a38aac/version/1668677986/image.jpg"}},    
     {"小吉":{"title":"アオイ 小吉",
-        "description":"清く気高いその精神で、己の信念を貫くことで道は開けるでしょう。しかし時には方の力を抜くことも必要です。",
+        "description":"清く気高いその精神で、己の信念を貫くことで道は開けるでしょう。しかし時には肩の力を抜くことも必要です。",
         "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=310x1024:format=jpg/path/se095f67148f22699/image/i3e38624541eb84d6/version/1668678214/image.jpg"}},
     {"末吉":{"title":"アヤメ 末吉",
         "description":"己が使命を全うしようとするその力強い意志はきっと何かを成し遂げるでしょう。ただあとほんの少しだけ注意力が必要かもしれません。",
@@ -35,6 +38,10 @@ const resultMap = [
     {"大凶":{"title":"リンドウ 大凶",
         "description":"信じていたものに裏切られ、自害するほどの悲しみと絶望に陥ってしまうかもしれません。もし復讐など企てているのであればやめたほうがいいかもしれません。",
         "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=310x1024:format=jpg/path/se095f67148f22699/image/ic823a4566a1e689e/version/1668845233/image.jpg"}},
+    {"小吉":{"title":"アリウム 小吉", // 11
+        "description":"己が正義を貫くのも良いですが、あまりにそれを過信すると破滅に繋がることでしょう。もう少しだけ他の正義のことを考えてみるといいかもしれません。",
+        "img":"https://image.jimcdn.com/app/cms/image/transf/dimension=160x512:format=jpg/path/se095f67148f22699/image/i1b8d4e9a6e0cd5cf/version/1668678448/image.jpg",
+        "img2":"https://image.jimcdn.com/app/cms/image/transf/dimension=160x512:format=jpg/path/se095f67148f22699/image/i643d81b44d72931a/version/1668678443/image.jpg"}},
     // {"":{"title":"", "description":"", "img":""}},
     ]
 
@@ -47,10 +54,15 @@ function Result() {
     var result = Object.values(resultData)[0]
   return (
     <div className="Result">
-        <header className="Result-header">
+        <header className="Result-header"> 
+            <div>
             <img src={result.img}
             className="Result-logo"
-            alt="omikuji" />
+            alt="omikuji" />{result.img2 ? <img src={result.img2}
+                                className="Result-logo2"
+                                alt="omikuji2"/> : undefined}
+                                {/* アリウム、サルビアのみ表示 */}
+            </div>
             <div className="ref">画像引用元: https://www.react-apc.com/</div>
             <h2>おみくじ結果：{result.title}</h2>
             {result.description}
